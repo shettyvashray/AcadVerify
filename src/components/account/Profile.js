@@ -97,15 +97,15 @@ export default class Profile extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    if(e.target.name === 'verifier'){
-      this.props.verifiers.map((verifier) => {
-        if(verifier.address === e.target.value){
-          this.setState({rate: verifier.price});
-          this.setState({institute: verifier.name})
-          console.log(verifier.name)
-        }
-      })
-    }
+    // if(e.target.name === 'verifier'){
+    //   this.props.verifiers.map((verifier) => {
+    //     if(verifier.address === e.target.value){
+    //       this.setState({rate: verifier.price});
+    //       this.setState({institute: verifier.name})
+    //       console.log(verifier.name)
+    //     }
+    //   })
+    // }
   };
   
 
@@ -187,11 +187,11 @@ export default class Profile extends Component {
             <div className='row'>
               <label htmlFor='select' className='col-4 custom-t'>Institute</label>
               <div className='col-8'>
-                <select name='verifier' className='custom-select' onChange={this.onChangeNew} defaultValue={this.state.type}>
+                <select name='verifier' className='custom-select' disabled={this.state.readOnly} onChange={this.onChangeNew} defaultValue={this.state.institute}>
                   <option selected disabled hidden>Choose here</option>
                   {this.props.verifiers.map((type, index) => (<option value={type.address} key={index}>{type.name}</option>))}
                 </select>
-                {this.state.submitted && !this.state.verifier && (<p className='error-msg'>{this.state.errors.verifier}</p>)}
+                {this.state.submitted && !this.state.verifier === null && (<p className='error-msg'>{this.state.errors.verifier}</p>)}
               </div>
             </div>
           </div>
