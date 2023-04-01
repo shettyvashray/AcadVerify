@@ -15,7 +15,7 @@ import user from '../../redux/type/user';
   };
 })
 
-export default class DocumentCreate extends Component {
+export default class ChangeInstitute extends Component {
   constructor(props) {
     super(props);
     console.log(this.props)
@@ -110,7 +110,7 @@ export default class DocumentCreate extends Component {
     return (
       <div className='container'>
         <div className='form-group row padding-40'>
-          <div className='col-6'>
+          {/* <div className='col-6'>
             <div className='row'>
               <label htmlFor='select' className='col-4 custom-t'>Name</label>
               <div className='col-8'>
@@ -118,7 +118,21 @@ export default class DocumentCreate extends Component {
                 {this.state.submitted && !this.state.name && (<p className='error-msg'>{this.state.errors.name}</p>)}
               </div>
             </div>
+          </div> */}
+
+          <div className='col-6 padding-top-15'>
+            <div className='row'>
+              <label htmlFor='select' className='col-4 custom-t'>New Institute</label>
+              <div className='col-8'>
+                <select name='name' className='custom-select' onChange={this.onChange} defaultValue={this.state.type}>
+                  <option selected disabled hidden>Choose here</option>
+                  {this.props.verifiers.map((type, index) => (<option value={type.name} key={index}>{type.name}</option>))}
+                </select>
+                {this.state.submitted && !this.state.name && (<p className='error-msg'>{this.state.errors.name}</p>)}
+              </div>
+            </div>
           </div>
+
           <div className='col-6'>
             <div className='row'>
               <label htmlFor='select' className='col-4 custom-t'>Description</label>
@@ -143,7 +157,7 @@ export default class DocumentCreate extends Component {
 
           <div className='col-6'>
             <div className='row'>
-              <label htmlFor='select' className='col-4 custom-t'>Institute</label>
+              <label htmlFor='select' className='col-4 custom-t'>Current Institute</label>
               <div className='col-8'>
                 <input className='form-control' name='institute' type='text' onChange={this.onChange} defaultValue={this.state.institute}/>
                 {this.state.submitted && !this.state.institute && (<p className='error-msg'>{this.state.errors.institute}</p>)}

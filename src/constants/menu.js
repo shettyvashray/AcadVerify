@@ -51,6 +51,11 @@ const privateMenu = {
       url: '/documents/create',
       label: 'Documents Create',
       menu: false
+    },
+    instituteChange: {
+      url: '/instituteChange',
+      label: 'Institute Change',
+      menu: true
     }
   },
   dropDown: {

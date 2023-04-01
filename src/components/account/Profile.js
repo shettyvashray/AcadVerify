@@ -47,7 +47,7 @@ export default class Profile extends Component {
   }
 
   componentDidMount(){
-    this.props.dispatch(verifiers({account: this.props.user.details.account}));
+    this.props.dispatch(verifiers({account: this.props.user.details.account, institute: this.props.user.details.institute}));
   }
   componentWillUpdate(nextProps){
     if(this.state.redirect && !nextProps.loading){
@@ -97,15 +97,15 @@ export default class Profile extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    // if(e.target.name === 'verifier'){
-    //   this.props.verifiers.map((verifier) => {
-    //     if(verifier.address === e.target.value){
-    //       this.setState({rate: verifier.price});
-    //       this.setState({institute: verifier.name})
-    //       console.log(verifier.name)
-    //     }
-    //   })
-    // }
+    if(e.target.name === 'verifier'){
+      this.props.verifiers.map((verifier) => {
+        if(verifier.address === e.target.value){
+          this.setState({rate: verifier.price});
+          this.setState({institute: verifier.name})
+          console.log(verifier.name)
+        }
+      })
+    }
   };
   
 

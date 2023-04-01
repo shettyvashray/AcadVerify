@@ -8876,15 +8876,15 @@
     "version": "0.4.26+commit.4563c3fc.Emscripten.clang"
   },
   "networks": {
-    "1680079867160": {
+    "1680336822455": {
       "events": {},
       "links": {
-        "EmailRegex": "0xf07ebb5981cb0245548a718a4b1d9e4c1bb82bbe"
+        "EmailRegex": "0x6e85f77538c292314bc46d961aa52a4170332620"
       },
-      "address": "0x3db02cf1d64c58f568e86e1574578b642b506c93",
-      "transactionHash": "0x115451010846f4850c17616b7ef35132b07534c17266d17f1a7719cd5eb8e578"
+      "address": "0xe74850a9aa17c6512a6ab79197720978943b89e1",
+      "transactionHash": "0x4e6299040bf6aedf0da600178c8967798ddb3487ace1a49b43f14dacfb39eff9"
     }
   },
   "schemaVersion": "2.0.3",
-  "updatedAt": "2023-03-29T08:52:31.658Z"
+  "updatedAt": "2023-04-01T08:15:12.095Z"
 }

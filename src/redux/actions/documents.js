@@ -48,10 +48,10 @@ export function create(payload) {
         if(!ipfsHash){
           throw new Error('IPFS file upload error occurred');
         }
-        return contract.documents.addDocument.estimateGas(payload.verifier, payload.name, payload.description, ipfsHash, {from: payload.account, value: payload.rate});
+        return contract.documents.addDocument.estimateGas(payload.institute, payload.name, payload.description, ipfsHash, {from: payload.account, value: payload.rate});
       })
       .then((gas)=>{
-        return contract.documents.addDocument(payload.verifier, payload.name, payload.description, ipfsHash, {from: payload.account, gasLimit: gas, value: payload.rate});
+        return contract.documents.addDocument(payload.institute, payload.name, payload.description, ipfsHash, {from: payload.account, gasLimit: gas, value: payload.rate});
       })
       .then(()=>{
         const documentAddedEvent = contract.documents.DocumentAdded();

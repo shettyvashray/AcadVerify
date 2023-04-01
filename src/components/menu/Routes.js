@@ -13,6 +13,7 @@ import LogOut from '../account/LogOut';
 import Transactions from '../account/Transactions';
 import Profile from '../account/Profile';
 import AuthRoute from '../../utils/AuthRoute';
+import ChangeInstitute from '../documents/changeInst';
 
 export default class Routes extends Component{
 
@@ -33,6 +34,7 @@ export default class Routes extends Component{
           <AuthRoute path={this.props.menu.documentsRequester.url} exact component={RequesterDocuments} />
           <AuthRoute path={this.props.menu.documentsVerifier.url} exact component={VerifierDocuments} />
           <AuthRoute path={this.props.menu.documentsCreate.url} exact component={CreateDocuments} />
+          <AuthRoute path={this.props.menu.instituteChange.url} exact component={ChangeInstitute} />
           <AuthRoute path={this.props.menu.logout.url} exact component={LogOut} />
           <AuthRoute path={this.props.menu.transactions.url} exact component={Transactions} />
           <AuthRoute path={this.props.menu.profile.url} exact component={Profile} />
