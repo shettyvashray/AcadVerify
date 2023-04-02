@@ -20,6 +20,7 @@ export default class Profile extends Component {
     this.state = {
       submitted: false,
       readOnly: true,
+      institute0: (props.user.details.type === 0) ? true: false,
       price0: props.user.details.type === 1, // for requester price should be zero
       name: props.user.details.name,
       email: props.user.details.email,
@@ -67,9 +68,9 @@ export default class Profile extends Component {
       [e.target.name]: value
     });
     if(value === '1'){
-      this.setState({price0: true, price: 0})
+      this.setState({price0: true, price: 0, institute0: false})
     }else{
-      this.setState({price0: false})
+      this.setState({price0: false, institute0: true})
     }
   };
   onSubmit = (event) =>{
@@ -187,7 +188,7 @@ export default class Profile extends Component {
             <div className='row'>
               <label htmlFor='select' className='col-4 custom-t'>Institute</label>
               <div className='col-8'>
-                <select name='verifier' className='custom-select' disabled={this.state.readOnly} onChange={this.onChangeNew} defaultValue={this.state.institute}>
+                <select name='verifier' className='custom-select' disabled={this.state.institute0} onChange={this.onChangeNew} defaultValue={this.state.institute}>
                   <option selected disabled hidden>Choose here</option>
                   {this.props.verifiers.map((type, index) => (<option value={type.address} key={index}>{type.name}</option>))}
                 </select>

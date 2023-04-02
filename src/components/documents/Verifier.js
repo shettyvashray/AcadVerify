@@ -5,6 +5,8 @@ import accountsConst from '../../constants/accounts';
 import menu from "../../constants/menu";
 import Loader from "../common/Loader";
 import {Redirect} from "react-router-dom";
+import { update } from '../../redux/actions/user';
+import user from '../../redux/type/user';
 
 @connect((store) => {
   return {
@@ -17,6 +19,13 @@ export default class Verifier extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // name: '',
+      // email: '',
+      // description: '',
+      // type: '',
+      // price: '',
+      // institute: '',
+      // logo: '',
       getStatusLabel: accountsConst.getStatusLabel,
       redirect: false,
       documents: menu.documents,
@@ -33,7 +42,25 @@ export default class Verifier extends Component {
       this.back();
   }
 
-  verifyDoc = (docAddress, status) => {
+  verifyDoc = (docAddress, status, institute, verifierAddr) => {
+    // const f1 = user
+    // console.log(f1);
+    // if(user.details.account === verifierAddr){
+    //   this.setState({name: user.details.name, email: user.details.email, description: user.details.description, type: user.details.type, rate: user.details.price, institute: institute, logo: user.details.logo});
+    // }
+    // const payload =  {
+    //   name: this.state.name,
+    //   email: this.state.email,
+    //   description: this.state.description,
+    //   type: this.state.type,
+    //   price: this.state.price,
+    //   institute: institute,
+    //   logo: this.state.logo,
+    //   account: verifierAddr,
+    // };
+    // console.log(payload)
+    // this.props.dispatch(update(payload));
+
     this.props.dispatch(verifyDoc({
       account: this.props.user.details.account,
       docAddress: docAddress,
@@ -81,8 +108,8 @@ export default class Verifier extends Component {
                             <a className='dropdown-item' href={doc.link} target='_blank'> View </a>
                             {doc.status === 0 && (
                               <div>
-                                <span className="dropdown-item Rejected pointer" onClick={() => this.verifyDoc(doc.docAddress, 2)}>Reject</span>
-                                <span className="dropdown-item Verified pointer" onClick={() => this.verifyDoc(doc.docAddress, 1)}>Verify</span>
+                                <span className="dropdown-item Rejected pointer" onClick={() => this.verifyDoc(doc.docAddress, 2, doc.name, doc.verifier)}>Reject</span>
+                                <span className="dropdown-item Verified pointer" onClick={() => this.verifyDoc(doc.docAddress, 1, doc.name, doc.verifier)}>Verify</span>
                               </div>
                               )}
                           </div>
